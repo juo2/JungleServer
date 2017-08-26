@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JungleServer", "JungleServer\JungleServer.csproj", "{30607141-7F2E-4640-9FED-088E1DBFF28E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JungleClient", "JungleClient\JungleClient.csproj", "{8DA0277A-0DF3-42CA-8F56-3CD3D45B9060}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30607141-7F2E-4640-9FED-088E1DBFF28E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30607141-7F2E-4640-9FED-088E1DBFF28E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30607141-7F2E-4640-9FED-088E1DBFF28E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30607141-7F2E-4640-9FED-088E1DBFF28E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DA0277A-0DF3-42CA-8F56-3CD3D45B9060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA0277A-0DF3-42CA-8F56-3CD3D45B9060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA0277A-0DF3-42CA-8F56-3CD3D45B9060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA0277A-0DF3-42CA-8F56-3CD3D45B9060}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

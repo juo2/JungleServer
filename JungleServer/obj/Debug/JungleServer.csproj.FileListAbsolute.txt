@@ -1,0 +1,6 @@
+F:\GitProject\JungleServer\JungleServer\bin\Debug\JungleServer.exe.config
+F:\GitProject\JungleServer\JungleServer\bin\Debug\JungleServer.exe
+F:\GitProject\JungleServer\JungleServer\bin\Debug\JungleServer.pdb
+F:\GitProject\JungleServer\JungleServer\obj\Debug\JungleServer.exe
+F:\GitProject\JungleServer\JungleServer\obj\Debug\JungleServer.pdb
+F:\GitProject\JungleServer\JungleServer\obj\Debug\JungleServer.csprojResolveAssemblyReference.cache
