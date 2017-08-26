@@ -18,18 +18,22 @@ namespace JungleClient
             byte[] data = new byte[1024];
             int count = clientSocket.Receive(data);
             string msg = Encoding.UTF8.GetString(data, 0, count);
-            Console.Write(msg);
+            Console.WriteLine(msg);
 
-            while (true)
-            {
-                string s = Console.ReadLine();
-                if (s == "c")
-                {
-                    clientSocket.Close();
-                    return;
-                }
-                clientSocket.Send(Encoding.UTF8.GetBytes(s));
+            //while (true)
+            //{
+            //    string s = Console.ReadLine();
+            //    if (s == "c")
+            //    {
+            //        clientSocket.Close();
+            //        return;
+            //    }
+            //    clientSocket.Send(Encoding.UTF8.GetBytes(s));
                 
+            //}
+            for(int i =0;i < 100;i++)
+            {
+                clientSocket.Send(Message.GetBytes(i.ToString()));
             }
 
             Console.ReadKey();

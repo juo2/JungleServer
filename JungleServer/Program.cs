@@ -10,7 +10,7 @@ namespace JungleServer
 {
     class Program
     {
-        static byte[] dataBuffer = new byte[1024];
+        static Message msg = new Message();
 
         static void Main(string[] args)
         {
@@ -26,7 +26,7 @@ namespace JungleServer
             serverSocket.Bind(ipEndPoint);//绑定ip和端口号
             serverSocket.Listen(10);//开始监听端口号
 
-           
+             
             //Socket clientSocket = serverSocket.Accept();//接收一个客户端连接
             serverSocket.BeginAccept(AcceptCallBack,serverSocket);
 
@@ -38,11 +38,11 @@ namespace JungleServer
             Socket clientSocket = serverSocket.EndAccept(ar);
 
             //向客户端发送一个消息
-            string msg = "Hello client";
-            byte[] data = Encoding.UTF8.GetBytes(msg);
+            string msgStr = "Hello client";
+            byte[] data = Encoding.UTF8.GetBytes(msgStr);
             clientSocket.Send(data);
 
-            clientSocket.BeginReceive(dataBuffer, 0, 1024, SocketFlags.None, ReceiveCallBack, clientSocket);
+            clientSocket.BeginReceive(msg.Data, msg.StartIndex, msg.RemainSize, SocketFlags.None, ReceiveCallBack, clientSocket);
 
             serverSocket.BeginAccept(AcceptCallBack, serverSocket);
         }
@@ -53,15 +53,19 @@ namespace JungleServer
             try
             {
 	            clientSocket = ar.AsyncState as Socket;
-	            int count = clientSocket.EndReceive(ar);//
-	            string msg = Encoding.UTF8.GetString(dataBuffer, 0, count);
-	            Console.WriteLine("从客户端接收到数据："  + msg);
-	            clientSocket.BeginReceive(dataBuffer, 0, 1024, SocketFlags.None, ReceiveCallBack, clientSocket);
-                if (count ==0)
+	            int count = clientSocket.EndReceive(ar);
+                //clientSocket.BeginReceive(dataBuffer, 0, 1024, SocketFlags.None, ReceiveCallBack, clientSocket);
+                if (count == 0)
                 {
-                    clientSocket.Close(); 
+                    clientSocket.Close();
                     return;
                 }
+                msg.AddCount(count);
+                msg.ReadMessage();
+                clientSocket.BeginReceive(msg.Data, msg.StartIndex, msg.RemainSize, SocketFlags.None, ReceiveCallBack, clientSocket);
+                //   string msgStr = Encoding.UTF8.GetString(dataBuffer, 0, count);
+                //Console.WriteLine("从客户端接收到数据："  + msgStr);
+
             }
             catch (System.Exception ex)
             {
